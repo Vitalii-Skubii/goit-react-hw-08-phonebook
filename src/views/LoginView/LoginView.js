@@ -33,8 +33,7 @@ class LoginView extends Component {
           style={{
             padding: 50,
             display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
+            textAlign: 'center',
           }}
         >
           <form

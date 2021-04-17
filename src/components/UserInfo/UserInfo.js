@@ -1,21 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
+import { Button, Paper, Avatar } from '@material-ui/core';
+import photo from './cat.jpg';
 
-const UserInfo = ({ name, email, onLogout }) => (
-  <div>
-    {/* <img src={avatar} alt="" /> */}
-    <h1>{name}</h1>
-    <p>{email}</p>
-    <button type="button" onClick={onLogout}>
+const UserInfo = ({ avatar, name, onLogout }) => (
+  <Paper
+    elevation={0}
+    style={{
+      padding: 10,
+      display: 'flex',
+      alignItems: 'center',
+      backgroundColor: 'transparent',
+    }}
+  >
+    <Avatar style={{ marginRight: 10 }} src={avatar} alt="" />
+    <h1 style={{ marginRight: 10 }}>{name}</h1>
+
+    <Button
+      variant="contained"
+      color="primary"
+      type="button"
+      onClick={onLogout}
+    >
       LogOut
-    </button>
-  </div>
+    </Button>
+  </Paper>
 );
 const mapStateToProps = state => ({
   name: authSelectors.getUsername(state),
   email: authSelectors.getUseremail(state),
-  // avatar:img
+  avatar: photo,
 });
 
 const mapDispatchToProps = {

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { authOperations } from '../../redux/auth';
-import { Paper, Button } from '@material-ui/core';
+import { Paper, Button, Container, Input } from '@material-ui/core';
 class RegisterView extends Component {
   state = {
     name: '',
@@ -26,45 +26,58 @@ class RegisterView extends Component {
   render() {
     const { name, email, password } = this.state;
     return (
-      <div>
-        {/* <Paper elevation={3} style={{ padding: 20, display: 'inline-block' }}> */}
-        <form
-          // className={styles.form}
-          onSubmit={this.handleSubmit}
+      <Container maxWidth="sm">
+        <Paper
+          elevation={3}
+          style={{
+            padding: 50,
+            display: 'flex',
+            textAlign: 'center',
+          }}
         >
-          <input
-            // className={styles.input}
-            type="text"
-            name="name"
-            placeholder="Enter name"
-            value={name}
-            onChange={this.handleChange}
-          />
-          <input
-            // className={styles.input}
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <input
-            // className={styles.input}
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <button
-            // className={styles.btn}
-            type="submit"
+          <form
+            // className={styles.form}
+            onSubmit={this.handleSubmit}
           >
-            Register
-          </button>
-        </form>
-        {/* </Paper> */}
-      </div>
+            <Input
+              style={{ marginBottom: '20px' }}
+              fullWidth="true"
+              // className={styles.input}
+              type="text"
+              name="name"
+              placeholder="Enter name"
+              value={name}
+              onChange={this.handleChange}
+            />
+            <Input
+              // className={styles.input}
+              style={{ marginBottom: '20px' }}
+              fullWidth="true"
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={this.handleChange}
+            />
+            <Input
+              // className={styles.input}
+              style={{ marginBottom: '20px' }}
+              fullWidth="true"
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={this.handleChange}
+            />
+            <Button
+              // className={styles.btn}
+              type="submit"
+            >
+              Register
+            </Button>
+          </form>
+        </Paper>
+      </Container>
     );
   }
 }
